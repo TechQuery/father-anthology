@@ -1,3 +1,4 @@
+import pg from 'pg';
 import { Sequelize } from 'sequelize';
 
 const NODE_ENV = process.env.NODE_ENV,
@@ -6,7 +7,7 @@ const NODE_ENV = process.env.NODE_ENV,
 export const isProduct = NODE_ENV === 'production';
 
 export const sequelize = isProduct
-  ? new Sequelize(DATABASE_URL)
+  ? new Sequelize(DATABASE_URL, { dialectModule: pg })
   : new Sequelize({ dialect: 'sqlite', storage: '.data/test.db' });
 
 export const readyDB = (async () => {

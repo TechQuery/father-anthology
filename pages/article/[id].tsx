@@ -7,14 +7,14 @@ import { Badge, Container, Image } from 'react-bootstrap';
 
 import { PageHead } from '../../components/PageHead';
 import { ArticleData, ArticleModel } from '../../models/Article';
-import { withTranslation } from '../api/core';
+import { withErrorLog, withTranslation } from '../api/core';
 
-export const getServerSideProps = withTranslation<{ id: string }, ArticleData>(
-  async ({ params }) => {
+export const getServerSideProps = withErrorLog<{ id: string }, ArticleData>(
+  withTranslation(async ({ params }) => {
     const articleStore = new ArticleModel();
 
     return { props: await articleStore.getOne(params!.id) };
-  },
+  }),
 );
 
 const ArticleDetailPage: FC<

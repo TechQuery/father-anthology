@@ -8,13 +8,15 @@ import { PageHead } from '../components/PageHead';
 import articleStore, { ArticleModel } from '../models/Article';
 import { i18n } from '../models/Translation';
 import styles from '../styles/Home.module.less';
-import { withTranslation } from './api/core';
+import { withErrorLog, withTranslation } from './api/core';
 
-export const getServerSideProps = withTranslation(async () => {
-  const articles = await new ArticleModel().getList();
+export const getServerSideProps = withErrorLog(
+  withTranslation(async () => {
+    const articles = await new ArticleModel().getList();
 
-  return { props: { articles } };
-});
+    return { props: { articles } };
+  }),
+);
 
 const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> =
   observer(({ articles }) => {

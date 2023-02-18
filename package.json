@@ -39,6 +39,7 @@
     "@types/lodash": "^4.14.191",
     "@types/marked": "^4.0.8",
     "@types/node": "^16.18.12",
+    "@types/pg": "^8.6.6",
     "@types/react": "^17.0.53",
     "eslint": "^8.34.0",
     "eslint-config-next": "^12.3.4",
