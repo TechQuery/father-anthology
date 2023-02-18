@@ -11,6 +11,7 @@ specifiers:
   '@editorjs/quote': ^2.5.0
   '@octokit/openapi-types': ^16.0.0
   '@types/lodash': ^4.14.191
+  '@types/marked': ^4.0.8
   '@types/node': ^16.18.12
   '@types/react': ^17.0.53
   editorjs-html: ^3.4.2
@@ -25,6 +26,7 @@ specifiers:
   less-loader: ^11.1.0
   lint-staged: ^13.1.2
   lodash: ^4.17.21
+  marked: ^4.2.12
   mobx: ^5.15.7
   mobx-i18n: ^0.3.14
   mobx-react: ^6.3.1
@@ -61,6 +63,7 @@ dependencies:
   idea-react: 0.27.11_ljcshh7vwitidgxq3r6xvmjpx4
   koajax: 0.8.3_typescript@4.9.5
   lodash: 4.17.21
+  marked: 4.2.12
   mobx: 5.15.7
   mobx-i18n: 0.3.14_mobx@5.15.7
   mobx-react: 6.3.1_hhkghttxnhy2fe22wf4styxgna
@@ -81,6 +84,7 @@ dependencies:
 devDependencies:
   '@octokit/openapi-types': 16.0.0
   '@types/lodash': 4.14.191
+  '@types/marked': 4.0.8
   '@types/node': 16.18.12
   '@types/react': 17.0.53
   eslint: 8.34.0
@@ -1836,6 +1840,10 @@ packages:
 
   /@types/lodash/4.14.191:
     resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
+    dev: true
+
+  /@types/marked/4.0.8:
+    resolution: {integrity: sha512-HVNzMT5QlWCOdeuBsgXP8EZzKUf0+AXzN+sLmjvaB3ZlLqO+e4u0uXrdw9ub69wBKFs+c6/pA4r9sy6cCDvImw==}
     dev: true
 
   /@types/minimatch/5.1.2:
@@ -4124,6 +4132,12 @@ packages:
       - bluebird
       - supports-color
     optional: true
+
+  /marked/4.2.12:
+    resolution: {integrity: sha512-yr8hSKa3Fv4D3jdZmtMMPghgVt6TWbk86WQaWhDloQjRSQhMMYCAro7jP7VDJrjjdV8pxVxMssXS8B8Y5DZ5aw==}
+    engines: {node: '>= 12'}
+    hasBin: true
+    dev: false
 
   /merge-stream/2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
