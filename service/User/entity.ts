@@ -1,17 +1,16 @@
-import { DataTypes } from 'sequelize';
+import { DataTypes, Sequelize } from 'sequelize';
 
 import { Base } from '../Base/entity';
-import { sequelize } from '../database';
 
 export enum Gender {
-  Female,
-  Male,
-  Other,
+  Female = '0',
+  Male = '1',
+  Other = '2',
 }
 
 export enum Role {
-  Editor,
-  Reader,
+  Editor = '0',
+  Reader = '1',
 }
 
 export class User extends Base {
@@ -23,9 +22,17 @@ export class User extends Base {
   declare token?: string;
 }
 
-User.init(
-  {
-    mobilePhone: DataTypes.STRING,
-  },
-  { sequelize },
-);
+export const init = (sequelize: Sequelize) =>
+  User.init(
+    {
+      mobilePhone: DataTypes.STRING,
+      nickName: { type: DataTypes.STRING, allowNull: true },
+      gender: {
+        type: DataTypes.ENUM(Gender.Female, Gender.Male, Gender.Other),
+        allowNull: true,
+      },
+      avatar: { type: DataTypes.STRING, allowNull: true },
+      roles: { type: DataTypes.JSON, allowNull: true },
+    },
+    { sequelize },
+  );
