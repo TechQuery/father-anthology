@@ -16,6 +16,7 @@
     "idea-react": "^0.27.11",
     "koajax": "^0.8.3",
     "lodash": "^4.17.21",
+    "marked": "^4.2.12",
     "mobx": "^5.15.7",
     "mobx-i18n": "^0.3.14",
     "mobx-react": "^6.3.1",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@octokit/openapi-types": "^16.0.0",
     "@types/lodash": "^4.14.191",
+    "@types/marked": "^4.0.8",
     "@types/node": "^16.18.12",
     "@types/react": "^17.0.53",
     "eslint": "^8.34.0",
