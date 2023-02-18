@@ -47,4 +47,5 @@ yarn-error.log*
 # IDE
 .vscode/settings.json
 
-.vercel
+.data/
+.vercel/
