@@ -9,7 +9,7 @@ export default safeAPI(async ({ method, query: { id } }, response) => {
 
       const data = await Article.findByPk(+id!);
 
-      response.send(data);
+      response.json(data);
     }
   }
 });

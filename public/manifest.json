@@ -1,6 +1,6 @@
 {
-  "name": "老爸文集",
-  "short_name": "老爸文集",
+  "name": "子夜微光",
+  "short_name": "子夜微光",
   "start_url": ".",
   "description": "React project scaffold based on TypeScript, Next.js, Bootstrap & Workbox.",
   "scope": "/",

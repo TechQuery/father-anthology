@@ -21,14 +21,13 @@ export default function Document() {
           rel="stylesheet"
           href="https://unpkg.com/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
         />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/prismjs@1.29.0/themes/prism.min.css"
-        />
       </Head>
 
       <body>
         <Main />
+
+        <div id="authing-modal" />
+
         <NextScript />
       </body>
     </Html>
