@@ -1,13 +1,15 @@
 import { observer } from 'mobx-react';
 import { InferGetServerSidePropsType } from 'next';
 import { FC } from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 
 import { ArticleList } from '../components/Article/List';
 import { PageHead } from '../components/PageHead';
+import { SessionBox } from '../components/SessionBox';
 import articleStore, { ArticleModel } from '../models/Article';
 import { i18n } from '../models/Translation';
-import styles from '../styles/Home.module.less';
+import userStore from '../models/User';
+import { Role } from '../service/type';
 import { withErrorLog, withTranslation } from './api/core';
 
 export const getServerSideProps = withErrorLog(
@@ -18,19 +20,23 @@ export const getServerSideProps = withErrorLog(
   }),
 );
 
+const { t } = i18n;
+
 const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> =
-  observer(({ articles }) => {
-    const { t } = i18n;
+  observer(({ articles }) => (
+    <Container as="main" className="py-3">
+      <PageHead />
 
-    return (
-      <>
-        <PageHead />
+      <header className="d-flex">
+        <SessionBox className="ms-auto" roles={[Role.Editor]}>
+          <Button size="sm" href="/article/0/editor">
+            写作
+          </Button>
+        </SessionBox>
+      </header>
 
-        <Container as="main" className={styles.main}>
-          <ArticleList store={articleStore} defaultData={articles} />
-        </Container>
-      </>
-    );
-  });
+      <ArticleList store={articleStore} defaultData={articles} />
+    </Container>
+  ));
 
 export default HomePage;

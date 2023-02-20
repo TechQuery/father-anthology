@@ -13,7 +13,6 @@ specifiers:
   '@octokit/openapi-types': ^16.0.0
   '@types/jsonwebtoken': ^9.0.1
   '@types/lodash': ^4.14.191
-  '@types/marked': ^4.0.8
   '@types/node': ^16.18.12
   '@types/pg': ^8.6.6
   '@types/react': ^17.0.53
@@ -30,11 +29,10 @@ specifiers:
   less-loader: ^11.1.0
   lint-staged: ^13.1.2
   lodash: ^4.17.21
-  marked: ^4.2.12
   mobx: ^5.15.7
   mobx-i18n: ^0.3.14
   mobx-react: ^6.3.1
-  mobx-restful: ^0.6.2
+  mobx-restful: ^0.6.3
   mobx-restful-table: ^0.6.3
   next: ^12.3.4
   next-pwa: ~5.6.0
@@ -42,10 +40,8 @@ specifiers:
   pg: ^8.9.0
   pg-hstore: ^2.3.4
   prettier: ^2.8.4
-  prismjs: ^1.29.0
   react: ^17.0.2
   react-bootstrap: ^2.7.2
-  react-bootstrap-editor: ^1.0.0-rc.7
   react-dom: ^17.0.2
   react-editor-js: ^2.1.0
   sequelize: ^6.28.0
@@ -71,21 +67,18 @@ dependencies:
   less: 4.1.3
   less-loader: 11.1.0_less@4.1.3
   lodash: 4.17.21
-  marked: 4.2.12
   mobx: 5.15.7
   mobx-i18n: 0.3.14_mobx@5.15.7
   mobx-react: 6.3.1_hhkghttxnhy2fe22wf4styxgna
-  mobx-restful: 0.6.2_p26dyi66jui5532votno5vdvqi
+  mobx-restful: 0.6.3_p26dyi66jui5532votno5vdvqi
   mobx-restful-table: 0.6.3_ksgph2xjzpfws6qncn3nipebtu
   next: 12.3.4_sfoxds7t5ydpegc3knd667wn6m
   next-pwa: 5.6.0_next@12.3.4
   next-with-less: 2.0.5_7qch47vmkxdytnoviaew2l266y
   pg: 8.9.0
   pg-hstore: 2.3.4
-  prismjs: 1.29.0
   react: 17.0.2
   react-bootstrap: 2.7.2_zsjcj4gvi24ks76nprapl4hsmq
-  react-bootstrap-editor: 1.0.0-rc.7_typescript@4.9.5
   react-dom: 17.0.2_react@17.0.2
   react-editor-js: 2.1.0_ykokb2mcshig6c3qzgmwwlwuk4
   sequelize: 6.28.0_q2dtd2cxoyvraha3nasjoqylae
@@ -95,7 +88,6 @@ devDependencies:
   '@octokit/openapi-types': 16.0.0
   '@types/jsonwebtoken': 9.0.1
   '@types/lodash': 4.14.191
-  '@types/marked': 4.0.8
   '@types/node': 16.18.12
   '@types/pg': 8.6.6
   '@types/react': 17.0.53
@@ -1975,10 +1967,6 @@ packages:
     resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
     dev: true
 
-  /@types/marked/4.0.8:
-    resolution: {integrity: sha512-HVNzMT5QlWCOdeuBsgXP8EZzKUf0+AXzN+sLmjvaB3ZlLqO+e4u0uXrdw9ub69wBKFs+c6/pA4r9sy6cCDvImw==}
-    dev: true
-
   /@types/minimatch/5.1.2:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
     dev: false
@@ -2521,10 +2509,6 @@ packages:
     dependencies:
       fill-range: 7.0.1
 
-  /browser-fs-access/0.31.1:
-    resolution: {integrity: sha512-jMz9f56DkLM7LyA8wZYO7CtpoF3RdUk1/FXrnRNybgV0R5eqk/fgFWR0k5IMjPYgK4jmZecytP/UDO5WBi9Dhg==}
-    dev: false
-
   /browserslist/4.21.3:
     resolution: {integrity: sha512-898rgRXLAyRkM1GryrrBHGkqA5hlpkV5MhtZwg9QXeiyLUYs2k00Un05aX5l2/yJIOObYKOpS2JNo8nJDE7fWQ==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
@@ -2981,14 +2965,6 @@ packages:
 
   /editorjs-html/3.4.2:
     resolution: {integrity: sha512-Gy8FV4oHMvnPDXLsdpZYW0Dgjaagff9bPd28/WW9aFdy87FvktJxQz8H+NKpxiGcGoNY27MmjFffurK2yhXjEg==}
-    dev: false
-
-  /edkit/1.0.0-rc.6:
-    resolution: {integrity: sha512-6RpmjEqg9YqhUHDkXKvZS8V9ZDkNyFwlLQkneeywOlg/aliLTDQGo86hCnpvnlHb8MsM9TgSoSusE6Xj98IZkw==}
-    dependencies:
-      '@swc/helpers': 0.4.14
-      browser-fs-access: 0.31.1
-      regenerator-runtime: 0.13.11
     dev: false
 
   /ejs/3.1.8:
@@ -4530,12 +4506,6 @@ packages:
       - supports-color
     optional: true
 
-  /marked/4.2.12:
-    resolution: {integrity: sha512-yr8hSKa3Fv4D3jdZmtMMPghgVt6TWbk86WQaWhDloQjRSQhMMYCAro7jP7VDJrjjdV8pxVxMssXS8B8Y5DZ5aw==}
-    engines: {node: '>= 12'}
-    hasBin: true
-    dev: false
-
   /matchmediaquery/0.3.1:
     resolution: {integrity: sha512-Hlk20WQHRIm9EE9luN1kjRjYXAQToHOIAHPJn9buxBwuhfTHoKUcX+lXBbxc85DVQfXYbEQ4HcwQdd128E3qHQ==}
     dependencies:
@@ -4727,7 +4697,7 @@ packages:
       mobx: 5.15.7
       mobx-i18n: 0.3.14_mobx@5.15.7
       mobx-react: 6.3.1_hhkghttxnhy2fe22wf4styxgna
-      mobx-restful: 0.6.2_p26dyi66jui5532votno5vdvqi
+      mobx-restful: 0.6.3_p26dyi66jui5532votno5vdvqi
       react: 17.0.2
       react-bootstrap: 2.7.2_zsjcj4gvi24ks76nprapl4hsmq
       regenerator-runtime: 0.13.11
@@ -4740,8 +4710,8 @@ packages:
       - typescript
     dev: false
 
-  /mobx-restful/0.6.2_p26dyi66jui5532votno5vdvqi:
-    resolution: {integrity: sha512-90C/2g1sv871wbc3EJB1/1VzjmU903AdnMqaRTvqCL0D2rw2a68UJiirmFF4oygYwesl9XBHFcR0WuvXgR/WJw==}
+  /mobx-restful/0.6.3_p26dyi66jui5532votno5vdvqi:
+    resolution: {integrity: sha512-y40QEXqOgvWM9Isv6lPwA4Wz9U3zmaI4wxXwJ1HX6D8gmfWOy/0Hhj5xkosOe9xh+4IRHYCLO/Po2ZeXH43jWQ==}
     peerDependencies:
       mobx: '>=4 <6'
     dependencies:
@@ -5927,18 +5897,6 @@ packages:
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
-    dev: false
-
-  /react-bootstrap-editor/1.0.0-rc.7_typescript@4.9.5:
-    resolution: {integrity: sha512-YK9LSGv5lHwVnm1/tKRmVYIIEJe63H9rvY7B7gU+WcIG7PGcwjdQ6VdwfBQlWNcyE7kt/eptCX5pH5rAM53wnQ==}
-    dependencies:
-      '@swc/helpers': 0.4.14
-      edkit: 1.0.0-rc.6
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-      web-utility: 3.9.9_typescript@4.9.5
-    transitivePeerDependencies:
-      - typescript
     dev: false
 
   /react-bootstrap/2.7.2_zsjcj4gvi24ks76nprapl4hsmq:

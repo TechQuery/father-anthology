@@ -1,15 +1,29 @@
+import { computed } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
 import { MouseEvent, PureComponent } from 'react';
 
 import userStore, { guard } from '../models/User';
+import { Role } from '../service/type';
 
 export interface SessionBoxProps {
+  className?: string;
   autoCover?: boolean;
+  roles?: Role[];
 }
 
 @observer
 export class SessionBox extends PureComponent<SessionBoxProps> {
+  @computed
+  get authorized() {
+    const { roles } = this.props,
+      { session } = userStore;
+
+    return !!(roles
+      ? session?.roles?.some(role => roles?.includes(role))
+      : session);
+  }
+
   componentDidMount() {
     const { autoCover } = this.props;
 
@@ -35,14 +49,15 @@ export class SessionBox extends PureComponent<SessionBoxProps> {
   }
 
   captureInput = (event: MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
     event.stopPropagation();
 
     this.openModal();
   };
 
   render() {
-    const { autoCover, children } = this.props,
-      { session } = userStore;
+    const { className, autoCover, children } = this.props,
+      { authorized } = this;
 
     return (
       <>
@@ -52,8 +67,13 @@ export class SessionBox extends PureComponent<SessionBoxProps> {
             href="https://cdn.authing.co/packages/guard/5.1.2/guard.min.css"
           />
         </Head>
-        <div onClickCapture={autoCover ? undefined : this.captureInput}>
-          {(!autoCover || session) && children}
+        <div
+          className={className}
+          onClickCapture={
+            autoCover || authorized ? undefined : this.captureInput
+          }
+        >
+          {(!autoCover || authorized) && children}
         </div>
       </>
     );
