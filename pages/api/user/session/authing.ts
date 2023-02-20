@@ -1,7 +1,10 @@
-import { JwtPayload, verify } from 'jsonwebtoken';
+import { JwtPayload, sign, verify } from 'jsonwebtoken';
+import { HTTPError, Response } from 'koajax';
+import { NextApiRequest } from 'next';
 
 import { readyDB } from '../../../../service/database';
-import { Role, User } from '../../../../service/User/entity';
+import { Role } from '../../../../service/type';
+import { User, UserData } from '../../../../service/User/entity';
 import { safeAPI } from '../../core';
 
 export type AuthingAddress = Partial<
@@ -17,8 +20,7 @@ export type AuthingUser = Record<
   >;
 
 export interface AuthingSession
-  extends JwtPayload,
-    Pick<AuthingUser, 'username' | 'unionid'>,
+  extends Pick<AuthingUser, 'username' | 'unionid'>,
     Record<'userpool_id' | 'gender' | 'picture', string>,
     Partial<
       Record<
@@ -50,41 +52,64 @@ export interface AuthingSession
 
 const AUTHING_APP_SECRET = process.env.AUTHING_APP_SECRET!;
 
-export default safeAPI(
-  async ({ method, headers: { authorization } }, response) => {
-    await readyDB;
+export function parseJWT<T>({ headers: { authorization } }: NextApiRequest) {
+  if (!authorization)
+    throw new HTTPError('Authorization header is missing', {
+      status: 401,
+      statusText: 'Unauthorized',
+      headers: {},
+    });
+  const [type, token] = authorization.split(/\s+/);
 
-    switch (method) {
-      case 'POST': {
-        if (!authorization) {
-          response.status(401);
-          return response.end();
-        }
-        const [type, token] = authorization.split(/\s+/);
+  return verify(token, AUTHING_APP_SECRET) as JwtPayload & T;
+}
 
+export function verifyJWT(
+  request: NextApiRequest,
+  requiredRoles: Role[],
+  { status, statusText }: Pick<Response, 'status' | 'statusText'>,
+) {
+  const { roles } = parseJWT<UserData>(request);
+
+  if (!requiredRoles.some(role => roles?.includes(role)))
+    throw new HTTPError('Forbidden', { status, statusText, headers: {} });
+}
+
+export default safeAPI(async (request, response) => {
+  await readyDB;
+
+  switch (request.method) {
+    case 'POST': {
+      let staticUser = parseJWT<AuthingSession | UserData>(request);
+
+      if ('phone_number' in staticUser) {
         const {
           phone_number: mobilePhone,
           nickname,
           picture,
-        } = verify(token, AUTHING_APP_SECRET) as AuthingSession;
+        } = staticUser as AuthingSession;
 
-        const oldUser = await User.findOne({ where: { mobilePhone } });
+        let user = await User.findOne({ where: { mobilePhone } });
 
-        if (oldUser) {
-          await oldUser.update({ nickname, picture });
+        if (user) await user.update({ nickname, picture });
+        else {
+          const sum = await User.count();
 
-          return response.json(oldUser);
+          await User.create({
+            mobilePhone,
+            nickname,
+            picture,
+            roles: [sum ? Role.Reader : Role.Editor],
+          });
         }
-        const sum = await User.count();
-
-        const newUser = await User.create({
-          mobilePhone,
-          nickname,
-          picture,
-          roles: [sum ? Role.Reader : Role.Editor],
-        });
-        response.json(newUser);
+        user = await User.findOne({ where: { mobilePhone } });
+        staticUser = user!.toJSON();
       }
+
+      response.json({
+        ...staticUser,
+        token: sign(staticUser, AUTHING_APP_SECRET),
+      });
     }
-  },
-);
+  }
+});

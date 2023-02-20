@@ -2,7 +2,7 @@ import { text2color, TimeDistance } from 'idea-react';
 import type { FC } from 'react';
 import { Badge, Card, Col, Row } from 'react-bootstrap';
 
-import { ArticleData } from '../../models/Article';
+import { ArticleData } from '../../service/Article/entity';
 import { TimeOption } from '../data';
 
 export interface ArticleCardProps extends ArticleData {
@@ -49,7 +49,7 @@ export const ArticleCard: FC<ArticleCardProps> = ({
       </Row>
       <Row as="footer" className="flex-fill small mt-1">
         <Col xs={8}>
-          {tags.split(',').map(tag => (
+          {tags.split(/\s+/).map(tag => (
             <Badge
               as="a"
               key={tag}

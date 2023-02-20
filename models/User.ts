@@ -1,8 +1,9 @@
 import { Guard } from '@authing/guard';
 import { HTTPClient } from 'koajax';
-import { observable } from 'mobx';
+import { computed, observable } from 'mobx';
 import { toggle } from 'mobx-restful';
 
+import { Role } from '../service/type';
 import { User } from '../service/User/entity';
 import { API_Host, TableModel } from './Base';
 
@@ -18,6 +19,11 @@ export class UserModel extends TableModel<User> {
 
   @observable
   session?: User = localStorage?.session && JSON.parse(localStorage.session);
+
+  @computed
+  get isEditor() {
+    return !!this.session?.roles?.includes(Role.Editor);
+  }
 
   client = new HTTPClient({
     baseURI: `${API_Host}/api/`,

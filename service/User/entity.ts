@@ -1,17 +1,7 @@
-import { DataTypes, Sequelize } from 'sequelize';
+import { DataTypes, InferAttributes, Sequelize } from 'sequelize';
 
 import { Base } from '../Base/entity';
-
-export enum Gender {
-  Female,
-  Male,
-  Other,
-}
-
-export enum Role {
-  Editor,
-  Reader,
-}
+import { Gender, Role } from '../type';
 
 export class User extends Base {
   declare mobilePhone: string;
@@ -21,6 +11,8 @@ export class User extends Base {
   declare roles?: Role[];
   declare token?: string;
 }
+
+export type UserData = InferAttributes<User>;
 
 export const init = (sequelize: Sequelize) =>
   User.init(

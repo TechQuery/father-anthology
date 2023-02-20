@@ -4,7 +4,8 @@ import { ScrollListProps } from 'mobx-restful-table';
 import { FC } from 'react';
 import { Col, Row, RowProps } from 'react-bootstrap';
 
-import { ArticleData, ArticleModel } from '../../models/Article';
+import { ArticleModel } from '../../models/Article';
+import { ArticleData } from '../../service/Article/entity';
 import { XScrollList } from '../ScrollList';
 import { ArticleCard } from './Card';
 
