@@ -2,6 +2,7 @@ import pg from 'pg';
 import { Sequelize } from 'sequelize';
 
 import * as Article from './Article/entity';
+import * as Comment from './Comment/entity';
 import * as User from './User/entity';
 
 const NODE_ENV = process.env.NODE_ENV,
@@ -14,7 +15,7 @@ export const sequelize = isProduct
   : new Sequelize({ dialect: 'sqlite', storage: '.data/test.db' });
 
 export const readyDB = (async () => {
-  for (const { init } of [User, Article]) init(sequelize);
+  for (const { init } of [User, Article, Comment]) init(sequelize);
 
   await sequelize.authenticate();
 

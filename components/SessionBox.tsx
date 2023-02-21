@@ -37,11 +37,15 @@ export class SessionBox extends PureComponent<SessionBoxProps> {
   };
 
   async openModal() {
+    if (+new Date(localStorage.tokenExpiredAt) > Date.now()) return;
+
     document.scrollingElement?.classList.add('overflow-hidden');
 
     guard.on('close', this.closeModal);
 
-    const { token } = await guard.start('#authing-modal');
+    const { token, tokenExpiredAt } = await guard.start('#authing-modal');
+
+    localStorage.tokenExpiredAt = tokenExpiredAt;
 
     await userStore.signInAuthing(token!);
 

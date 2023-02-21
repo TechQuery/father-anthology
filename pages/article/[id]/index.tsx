@@ -4,10 +4,10 @@ import Head from 'next/head';
 import { FC } from 'react';
 import { Badge, Button, Container, Image } from 'react-bootstrap';
 
+import { CommentBox } from '../../../components/Comment';
 import { PageHead } from '../../../components/PageHead';
 import { SessionBox } from '../../../components/SessionBox';
 import { ArticleModel } from '../../../models/Article';
-import userStore from '../../../models/User';
 import { ArticleData } from '../../../service/Article/entity';
 import { Role } from '../../../service/type';
 import { withErrorLog, withTranslation } from '../../api/core';
@@ -16,7 +16,7 @@ export const getServerSideProps = withErrorLog<{ id: string }, ArticleData>(
   withTranslation(async ({ params }) => {
     const articleStore = new ArticleModel();
 
-    return { props: await articleStore.getOne(params!.id) };
+    return { props: await articleStore.getOne(+params!.id) };
   }),
 );
 
@@ -83,6 +83,8 @@ const ArticleDetailPage: FC<
     <blockquote>{summary}</blockquote>
 
     <EditorHTML data={content} />
+
+    <CommentBox className="py-3" articleId={id} />
   </Container>
 );
 
