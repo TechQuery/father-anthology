@@ -1,6 +1,5 @@
 import { Option, Select } from 'idea-react';
 import { observer } from 'mobx-react';
-import Link from 'next/link';
 import { FC } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 
@@ -27,13 +26,10 @@ export const MainNavigator: FC = observer(() => {
 
         <Navbar.Collapse id="navbar-inner">
           <Nav className="me-auto">
-            <Link href="/pagination" passHref>
-              <Nav.Link>{t('pagination')}</Nav.Link>
-            </Link>
-            <Link href="/scroll-list" passHref>
-              <Nav.Link>{t('scroll_list')}</Nav.Link>
-            </Link>
-            <Nav.Link target="_blank" href="https://github.com/IdeaMall/PWA">
+            <Nav.Link
+              target="_blank"
+              href="https://github.com/TechQuery/father-anthology"
+            >
               {t('source_code')}
             </Nav.Link>
           </Nav>
