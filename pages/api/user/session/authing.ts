@@ -69,10 +69,12 @@ export function verifyJWT(
   requiredRoles: Role[],
   { status, statusText }: Pick<Response, 'status' | 'statusText'>,
 ) {
-  const { roles } = parseJWT<UserData>(request);
+  const user = parseJWT<UserData>(request);
 
-  if (!requiredRoles.some(role => roles?.includes(role)))
+  if (!requiredRoles.some(role => user.roles?.includes(role)))
     throw new HTTPError('Forbidden', { status, statusText, headers: {} });
+
+  return user;
 }
 
 export default safeAPI(async (request, response) => {

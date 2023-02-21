@@ -1,8 +1,8 @@
-import { Article } from '../../../service/Article/entity';
-import { readyDB } from '../../../service/database';
-import { Role } from '../../../service/type';
-import { safeAPI } from '../core';
-import { verifyJWT } from '../user/session/authing';
+import { Article } from '../../../../service/Article/entity';
+import { readyDB } from '../../../../service/database';
+import { Role } from '../../../../service/type';
+import { safeAPI } from '../../core';
+import { verifyJWT } from '../../user/session/authing';
 
 export default safeAPI(async (request, response) => {
   await readyDB;
