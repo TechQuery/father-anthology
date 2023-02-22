@@ -1,27 +1,71 @@
 import { Avatar, TimeDistance } from 'idea-react';
-import type { FC } from 'react';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
+import { PureComponent } from 'react';
+import { Button, Col, Row } from 'react-bootstrap';
 
+import { CommentModel } from '../../models/Comment';
 import { CommentData } from '../../service/Comment/entity';
 import { TimeOption } from '../data';
+import { CommentForm } from './Form';
 
 export interface CommentCardProps extends CommentData {
   className?: string;
+  store: CommentModel;
 }
 
-export const CommentCard: FC<CommentCardProps> = ({
-  className = '',
-  createdAt,
-  poster,
-  content,
-}: CommentCardProps) => (
-  <li className={`d-flex gap-3 p-3 shadow-sm ${className}`}>
-    <div className="text-center">
-      <Avatar src={poster.avatar} />
+@observer
+export class CommentCard extends PureComponent<CommentCardProps> {
+  @observable
+  openForm = false;
 
-      <h3 className="h6">{poster.nickName || poster.mobilePhone}</h3>
+  render() {
+    const { openForm } = this,
+      {
+        className = '',
+        store,
+        id,
+        createdAt,
+        poster,
+        content,
+        parentId,
+      } = this.props;
 
-      <TimeDistance {...TimeOption} date={createdAt} />
-    </div>
-    <div className="flex-fill">{content}</div>
-  </li>
-);
+    return (
+      <Row
+        as="li"
+        className={`g-3 p-3 shadow-sm ${className}`}
+        id={`comment-${id}`}
+      >
+        <Col className="text-center" xs={2}>
+          <Avatar src={poster.avatar} />
+
+          <h3 className="h6">{poster.nickName || poster.mobilePhone}</h3>
+
+          <TimeDistance {...TimeOption} date={createdAt} />
+        </Col>
+        <Col xs={10} className="d-flex flex-column">
+          <p className="flex-fill">{content}</p>
+          <footer>
+            {parentId && (
+              <Button variant="link" href={`#comment-${parentId}`}>
+                前文
+              </Button>
+            )}
+            <Button variant="link" onClick={() => (this.openForm = true)}>
+              回复
+            </Button>
+          </footer>
+        </Col>
+        {openForm && (
+          <CommentForm
+            className="col-12 mt-3"
+            store={store}
+            parentId={id}
+            onSubmit={() => (this.openForm = false)}
+          />
+        )}
+      </Row>
+    );
+  }
+}

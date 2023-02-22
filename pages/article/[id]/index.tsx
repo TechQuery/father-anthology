@@ -4,10 +4,11 @@ import Head from 'next/head';
 import { FC } from 'react';
 import { Badge, Button, Container, Image } from 'react-bootstrap';
 
-import { CommentBox } from '../../../components/Comment';
+import { CommentList } from '../../../components/Comment/List';
 import { PageHead } from '../../../components/PageHead';
 import { SessionBox } from '../../../components/SessionBox';
 import { ArticleModel } from '../../../models/Article';
+import { CommentModel } from '../../../models/Comment';
 import { ArticleData } from '../../../service/Article/entity';
 import { Role } from '../../../service/type';
 import { withErrorLog, withTranslation } from '../../api/core';
@@ -84,7 +85,7 @@ const ArticleDetailPage: FC<
 
     <EditorHTML data={content} />
 
-    <CommentBox className="py-3" articleId={id} />
+    <CommentList className="py-3" store={new CommentModel(id)} />
   </Container>
 );
 

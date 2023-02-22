@@ -33,7 +33,9 @@ export default safeAPI(async (request, response) => {
         },
         { include: [Comment.Poster] },
       );
-      response.send(await comment.save());
+      await comment.save();
+
+      response.send(await comment.reload());
     }
   }
 });
