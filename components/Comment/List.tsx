@@ -7,15 +7,25 @@ import { CommentModel } from '../../models/Comment';
 import { CommentData } from '../../service/Comment/entity';
 import { XScrollList } from '../ScrollList';
 import { CommentCard } from './Card';
+import { CommentForm } from './Form';
 
 export interface CommentListLayoutProps {
+  store: CommentModel;
   data: CommentData[];
 }
 
-export const CommentListLayout: FC<CommentListLayoutProps> = ({ data }) => (
+export const CommentListLayout: FC<CommentListLayoutProps> = ({
+  store,
+  data,
+}) => (
   <ol className="list-unstyled">
     {data.map(item => (
-      <CommentCard key={item.id + ''} {...item} />
+      <CommentCard
+        className="my-3"
+        key={item.id + ''}
+        store={store}
+        {...item}
+      />
     ))}
   </ol>
 );
@@ -39,13 +49,16 @@ export class CommentList extends XScrollList<CommentListProps> {
   }
 
   renderList() {
-    const { totalCount, allItems } = this.store;
+    const { store } = this;
+    const { totalCount, allItems } = store;
 
     return (
       <>
+        <CommentForm store={store} />
+
         <aside className="p-3 text-center">已有 {totalCount} 条留言</aside>
 
-        <CommentListLayout data={allItems} />
+        <CommentListLayout store={store} data={allItems} />
       </>
     );
   }
