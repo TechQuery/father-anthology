@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@authing/guard': ^5.1.2
+  '@authing/guard': ^5.1.3
   '@editorjs/code': ^2.8.0
   '@editorjs/editorjs': ^2.26.5
   '@editorjs/header': ^2.7.0
@@ -43,14 +43,14 @@ specifiers:
   react-bootstrap: ^2.7.2
   react-dom: ^17.0.2
   react-editor-js: ^2.1.0
-  sequelize: ^6.28.0
+  sequelize: ^6.29.0
   sqlite3: ^5.1.4
   ts-node: ^10.9.1
   typescript: ~4.9.5
   web-utility: ^4.0.0
 
 dependencies:
-  '@authing/guard': 5.1.2
+  '@authing/guard': 5.1.3
   '@editorjs/code': 2.8.0
   '@editorjs/editorjs': 2.26.5
   '@editorjs/header': 2.7.0
@@ -80,7 +80,7 @@ dependencies:
   react-bootstrap: 2.7.2_zsjcj4gvi24ks76nprapl4hsmq
   react-dom: 17.0.2_react@17.0.2
   react-editor-js: 2.1.0_ykokb2mcshig6c3qzgmwwlwuk4
-  sequelize: 6.28.0_q2dtd2cxoyvraha3nasjoqylae
+  sequelize: 6.29.0_q2dtd2cxoyvraha3nasjoqylae
   web-utility: 4.0.0_typescript@4.9.5
 
 devDependencies:
@@ -129,7 +129,7 @@ packages:
     dependencies:
       '@ant-design/colors': 6.0.0
       '@ant-design/icons-svg': 4.2.1
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
       react: 16.14.0
@@ -141,7 +141,7 @@ packages:
     peerDependencies:
       react: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       json2mq: 0.2.0
       lodash: 4.17.21
@@ -161,10 +161,10 @@ packages:
       leven: 3.1.0
     dev: false
 
-  /@authing/guard/5.1.2:
-    resolution: {integrity: sha512-Zgb9CZ2co2YMDgmnTiNRQPdANrUYkkhdEUaq5e5XyqHx364lQy+hn/G9OVF80z3e4f/7o6bk0WFjeqGsUZgEEQ==}
+  /@authing/guard/5.1.3:
+    resolution: {integrity: sha512-ROEtFRMApo9qUgiUUyJdJsDujYNFPHoKMphl1f25+RIgFnYBiEPnP2N5GUz1Edz/cbBnNNnYO+7HViUClyPrSA==}
     dependencies:
-      '@authing/react-ui-components': 4.3.3_wcqkhtmu7mswc6yz4uyexck3ty
+      '@authing/react-ui-components': 4.3.4_wcqkhtmu7mswc6yz4uyexck3ty
       axios: 0.27.2
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
@@ -172,8 +172,8 @@ packages:
       - debug
     dev: false
 
-  /@authing/react-ui-components/4.3.3_wcqkhtmu7mswc6yz4uyexck3ty:
-    resolution: {integrity: sha512-U57Tc9YlZ5YHbdtZRTcRfhG6PHhRx3PcuG4Tlcxepk+sNnpJ8gN1XKGuaqz7S/8kDRJ3Mc3X1/V9fAMUrtv2yA==}
+  /@authing/react-ui-components/4.3.4_wcqkhtmu7mswc6yz4uyexck3ty:
+    resolution: {integrity: sha512-LVxwChnnBSp6IC4jCkD9YpceKiE4MgmM231k2v7+OtZIXTI/fsE7S6cty4SniHK+ta1DSCGzQGP/Up+KY3Oiow==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -185,6 +185,7 @@ packages:
       global: 4.4.0
       phone: 3.1.34
       prompt: 1.3.0
+      qrcode.react: 3.1.0_react@16.14.0
       qs: 6.11.0
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
@@ -2198,7 +2199,7 @@ packages:
       '@ant-design/colors': 6.0.0
       '@ant-design/icons': 4.8.0_wcqkhtmu7mswc6yz4uyexck3ty
       '@ant-design/react-slick': 0.29.2_react@16.14.0
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       '@ctrl/tinycolor': 3.6.0
       classnames: 2.3.2
       copy-to-clipboard: 3.3.3
@@ -5350,6 +5351,14 @@ packages:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
 
+  /qrcode.react/3.1.0_react@16.14.0:
+    resolution: {integrity: sha512-oyF+Urr3oAMUG/OiOuONL3HXM+53wvuH3mtIWQrYmsXoAq0DkvZp2RYUWFSMFtbdOpuS++9v+WAkzNVkMlNW6Q==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 16.14.0
+    dev: false
+
   /qs/6.11.0:
     resolution: {integrity: sha512-MvjoMCJwEarSbUYk5O+nmoSzSutSsTwF85zcHPQ9OrlFoZOYIjaqBAJIqIXjptyD5vThxGq52Xu/MaJzRkIk4Q==}
     engines: {node: '>=0.6'}
@@ -5387,7 +5396,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       array-tree-filter: 2.1.0
       classnames: 2.3.2
       rc-select: 14.1.16_wcqkhtmu7mswc6yz4uyexck3ty
@@ -5403,7 +5412,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
@@ -5415,7 +5424,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-motion: 2.6.3_wcqkhtmu7mswc6yz4uyexck3ty
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
@@ -5430,7 +5439,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       '@rc-component/portal': 1.1.0_wcqkhtmu7mswc6yz4uyexck3ty
       classnames: 2.3.2
       rc-motion: 2.6.3_wcqkhtmu7mswc6yz4uyexck3ty
@@ -5445,7 +5454,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       '@rc-component/portal': 1.1.0_wcqkhtmu7mswc6yz4uyexck3ty
       classnames: 2.3.2
       rc-motion: 2.6.3_wcqkhtmu7mswc6yz4uyexck3ty
@@ -5460,7 +5469,7 @@ packages:
       react: '>=16.11.0'
       react-dom: '>=16.11.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-trigger: 5.3.4_wcqkhtmu7mswc6yz4uyexck3ty
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
@@ -5475,7 +5484,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       async-validator: 4.2.5
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
       react: 16.14.0
@@ -5488,7 +5497,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       '@rc-component/portal': 1.1.0_wcqkhtmu7mswc6yz4uyexck3ty
       classnames: 2.3.2
       rc-dialog: 9.0.2_wcqkhtmu7mswc6yz4uyexck3ty
@@ -5504,7 +5513,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
       react: 16.14.0
@@ -5517,7 +5526,7 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
       react: 16.14.0
@@ -5530,7 +5539,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-menu: 9.8.2_wcqkhtmu7mswc6yz4uyexck3ty
       rc-textarea: 0.4.7_wcqkhtmu7mswc6yz4uyexck3ty
@@ -5546,7 +5555,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-motion: 2.6.3_wcqkhtmu7mswc6yz4uyexck3ty
       rc-overflow: 1.2.8_wcqkhtmu7mswc6yz4uyexck3ty
@@ -5562,7 +5571,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
       react: 16.14.0
@@ -5576,7 +5585,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-motion: 2.6.3_wcqkhtmu7mswc6yz4uyexck3ty
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
@@ -5604,7 +5613,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
@@ -5617,7 +5626,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       date-fns: 2.29.3
       dayjs: 1.11.7
@@ -5635,7 +5644,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
       react: 16.14.0
@@ -5649,7 +5658,7 @@ packages:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
       react: 16.14.0
@@ -5676,7 +5685,7 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
-      '@babel/runtime': 7.19.0
+      '@babel/runtime': 7.20.13
       classnames: 2.3.2
       rc-motion: 2.6.3_wcqkhtmu7mswc6yz4uyexck3ty
       rc-util: 5.27.2_wcqkhtmu7mswc6yz4uyexck3ty
@@ -6342,14 +6351,6 @@ packages:
     hasBin: true
     dev: false
 
-  /semver/7.3.7:
-    resolution: {integrity: sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      lru-cache: 6.0.0
-    dev: false
-
   /semver/7.3.8:
     resolution: {integrity: sha512-NB1ctGL5rlHrPJtFDVIVzTyQylMLu9N9VICA6HSFJo8MCGVTMW6gfpicwKmmK/dAjTOrqu5l63JJOpDSrAis3A==}
     engines: {node: '>=10'}
@@ -6362,8 +6363,8 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: false
 
-  /sequelize/6.28.0_q2dtd2cxoyvraha3nasjoqylae:
-    resolution: {integrity: sha512-+WHqvUQgTp19GLkt+gyQ+F6qg+FIEO2O5F9C0TOYV/PjZ2a/XwWvVkL1NCkS4VSIjVVvAUutiW6Wv9ofveGaVw==}
+  /sequelize/6.29.0_q2dtd2cxoyvraha3nasjoqylae:
+    resolution: {integrity: sha512-m8Wi90rs3NZP9coXE52c7PL4Q078nwYZXqt1IxPvgki7nOFn0p/F0eKsYDBXCPw9G8/BCEa6zZNk0DQUAT4ypA==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       ibm_db: '*'
@@ -6407,7 +6408,7 @@ packages:
       pg-connection-string: 2.5.0
       pg-hstore: 2.3.4
       retry-as-promised: 7.0.4
-      semver: 7.3.7
+      semver: 7.3.8
       sequelize-pool: 7.1.0
       sqlite3: 5.1.4
       toposort-class: 1.0.1

@@ -8,7 +8,6 @@ import { PageHead } from '../components/PageHead';
 import { SessionBox } from '../components/SessionBox';
 import articleStore, { ArticleModel } from '../models/Article';
 import { i18n } from '../models/Translation';
-import userStore from '../models/User';
 import { Role } from '../service/type';
 import { withErrorLog, withTranslation } from './api/core';
 
@@ -30,7 +29,7 @@ const HomePage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> =
       <header className="d-flex">
         <SessionBox className="ms-auto" roles={[Role.Editor]}>
           <Button size="sm" href="/article/0/editor">
-            写作
+            {t('write')}
           </Button>
         </SessionBox>
       </header>

@@ -1,8 +1,27 @@
 import { IDType } from 'mobx-restful';
 
 export default {
+  before: '前',
+  after: '后',
+  Millisecond: '毫秒',
+  Second: '秒',
+  Minute: '分',
+  Hour: '时',
+  Day: '天',
+  Week: '周',
+  Month: '月',
+  Year: '年',
+
   sign_in: '登录',
   sign_out: '退出',
+
+  write: '写作',
+  comment: '评论',
+  post: '发言',
+  has_x_comments: ({ totalCount }: { totalCount: number }) =>
+    `已有 ${totalCount} 条评论`,
+  reply: '回复',
+  quote: '引用',
 
   welcome_to: '欢迎使用',
   get_started_by_editing: '开始你的项目吧，编辑',

@@ -4,6 +4,7 @@ import { ScrollListProps } from 'mobx-restful-table';
 import { FC } from 'react';
 
 import { CommentModel } from '../../models/Comment';
+import { i18n } from '../../models/Translation';
 import { CommentData } from '../../service/Comment/entity';
 import { XScrollList } from '../ScrollList';
 import { CommentCard } from './Card';
@@ -37,6 +38,8 @@ export interface CommentListProps
   filter?: Filter<CommentData>;
 }
 
+const { t } = i18n;
+
 @observer
 export class CommentList extends XScrollList<CommentListProps> {
   store = this.props.store;
@@ -56,8 +59,9 @@ export class CommentList extends XScrollList<CommentListProps> {
       <>
         <CommentForm store={store} />
 
-        <aside className="p-3 text-center">已有 {totalCount} 条留言</aside>
-
+        <aside className="p-3 text-center">
+          {t('has_x_comments', { totalCount })}
+        </aside>
         <CommentListLayout store={store} data={allItems} />
       </>
     );

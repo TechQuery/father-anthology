@@ -1,19 +1,21 @@
 import { TimeDistanceProps } from 'idea-react';
 
-export const TimeOption: Pick<
-  TimeDistanceProps,
-  'unitWords' | 'beforeWord' | 'afterWord'
-> = {
-  unitWords: {
-    ms: '毫秒',
-    s: '秒',
-    m: '分',
-    H: '时',
-    D: '日',
-    W: '周',
-    M: '月',
-    Y: '年',
-  },
-  beforeWord: '前',
-  afterWord: '后',
-};
+import { i18n } from '../models/Translation';
+
+const { t } = i18n;
+
+export const TimeOption = () =>
+  ({
+    unitWords: {
+      ms: t('Millisecond'),
+      s: t('Second'),
+      m: t('Minute'),
+      H: t('Hour'),
+      D: t('Day'),
+      W: t('Week'),
+      M: t('Month'),
+      Y: t('Year'),
+    },
+    beforeWord: t('before'),
+    afterWord: t('after'),
+  } as Pick<TimeDistanceProps, 'unitWords' | 'beforeWord' | 'afterWord'>);

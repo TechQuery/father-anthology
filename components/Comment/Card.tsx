@@ -5,6 +5,7 @@ import { PureComponent } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 
 import { CommentModel } from '../../models/Comment';
+import { i18n } from '../../models/Translation';
 import { CommentData } from '../../service/Comment/entity';
 import { TimeOption } from '../data';
 import { CommentForm } from './Form';
@@ -13,6 +14,8 @@ export interface CommentCardProps extends CommentData {
   className?: string;
   store: CommentModel;
 }
+
+const { t } = i18n;
 
 @observer
 export class CommentCard extends PureComponent<CommentCardProps> {
@@ -49,11 +52,11 @@ export class CommentCard extends PureComponent<CommentCardProps> {
           <footer>
             {parentId && (
               <Button variant="link" href={`#comment-${parentId}`}>
-                前文
+                {t('quote')}
               </Button>
             )}
             <Button variant="link" onClick={() => (this.openForm = true)}>
-              回复
+              {t('reply')}
             </Button>
           </footer>
         </Col>

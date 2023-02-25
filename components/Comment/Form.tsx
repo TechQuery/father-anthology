@@ -1,9 +1,11 @@
 import { SpinnerButton } from 'idea-react';
+import { observer } from 'mobx-react';
 import { FormEvent, PureComponent } from 'react';
 import { Col, FloatingLabel, Form } from 'react-bootstrap';
 import { formToJSON } from 'web-utility';
 
 import { CommentModel } from '../../models/Comment';
+import { i18n } from '../../models/Translation';
 import { CommentData } from '../../service/Comment/entity';
 
 export interface CommentFormProps {
@@ -13,6 +15,9 @@ export interface CommentFormProps {
   onSubmit?: () => any;
 }
 
+const { t } = i18n;
+
+@observer
 export class CommentForm extends PureComponent<CommentFormProps> {
   handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -21,8 +26,6 @@ export class CommentForm extends PureComponent<CommentFormProps> {
       { content } = formToJSON<CommentData>(event.currentTarget);
 
     await store.updateOne({ content, parentId });
-
-    store.restoreList({ allItems: [...store.allItems, store.currentOne] });
 
     onSubmit?.();
   };
@@ -34,12 +37,12 @@ export class CommentForm extends PureComponent<CommentFormProps> {
     return (
       <Form className={`row ${className}`} onSubmit={this.handleSubmit}>
         <Col xs={12} sm={10}>
-          <FloatingLabel controlId="content" label="评论">
+          <FloatingLabel controlId="content" label={t('comment')}>
             <Form.Control
               as="textarea"
               name="content"
               required
-              placeholder="评论"
+              placeholder={t('comment')}
             />
           </FloatingLabel>
         </Col>
@@ -48,7 +51,7 @@ export class CommentForm extends PureComponent<CommentFormProps> {
           type="submit"
           loading={uploading > 0}
         >
-          发言
+          {t('post')}
         </SpinnerButton>
       </Form>
     );
