@@ -7,14 +7,14 @@ const { t } = i18n;
 export const TimeOption = () =>
   ({
     unitWords: {
-      ms: t('Millisecond'),
-      s: t('Second'),
-      m: t('Minute'),
-      H: t('Hour'),
-      D: t('Day'),
-      W: t('Week'),
-      M: t('Month'),
-      Y: t('Year'),
+      ms: t('millisecond'),
+      s: t('second'),
+      m: t('minute'),
+      H: t('hour'),
+      D: t('day'),
+      W: t('week'),
+      M: t('month'),
+      Y: t('year'),
     },
     beforeWord: t('before'),
     afterWord: t('after'),
