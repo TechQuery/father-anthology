@@ -11,15 +11,11 @@ export default function Document() {
 
         <link
           rel="stylesheet"
-          href="https://unpkg.com/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          href="https://unpkg.com/bootstrap@5.3.1/dist/css/bootstrap.min.css"
         />
         <link
           rel="stylesheet"
-          href="https://unpkg.com/idea-react@0.27.11/dist/index.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+          href="https://unpkg.com/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
         />
       </Head>
 
